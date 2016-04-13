@@ -12,6 +12,7 @@ var config = require('../_config');
 
 // *** routes *** //
 var routes = require('./routes/index.js');
+var studentRoutes = require('./routes/students.js');
 
 // *** express instance *** //
 var app = express();
@@ -49,6 +50,7 @@ app.use(express.static(path.join(__dirname, '../client')));
 
 // *** main routes *** //
 app.use('/', routes);
+app.use('/students', studentRoutes);
 
 
 // catch 404 and forward to error handler
@@ -77,7 +79,7 @@ if (app.get('env') === 'development') {
 // no stacktraces leaked to user
 app.use(function(err, req, res, next) {
   res.status(err.status || 500);
-  res.render('error', {
+  res.json({
     message: err.message,
     error: {}
   });

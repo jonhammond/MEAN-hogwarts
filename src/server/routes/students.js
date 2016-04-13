@@ -45,21 +45,13 @@ router.put('/:id', function(req, res, next) {
 router.post('/', function(req, res, next){
  var student = Students(req.body);
  student.save(function(error, student){
+  //  console.log("post:",student);
    res.status(200).json({
      status: 'success',
      data: student
    });
  });
 });
-// router.post('/', function(req, res, next) {
-//   // var student = new Student(req.body);
-//   Students.insert({firstName: 'Hermione', lastName: 'Granger', year: 2007}, function(err, student){
-//     res.status(200).json({
-//       status: 'success',
-//       data: student
-//     });
-//   });
-// });
 
 // Delete a SINGLE student route
 router.delete('/:id', function(req, res, next) {

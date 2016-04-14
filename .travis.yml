@@ -1,14 +1,19 @@
 language: node_js
-
 node_js:
-  - "5"
-  - "4.0"
-  - '0.12'
-  - '0.11'
-
+- '5'
+- '4.0'
+- '0.12'
+- '0.11'
 services: mongodb
-
 before_script:
-  - npm install -g mocha
-
+- npm install -g mocha
 script: mocha
+deploy:
+  provider: heroku
+  api_key:
+    secure: sBS4e7mqrnoqnzZjGuEVLNMmn2yNc9/FyjCGmn/t+ZtEERYTFGI1wdtCxlWb+BTikvDAl2NcHeQUzDmoH9kxttadVyLYsoRiu2nXp4OyUBiwaHTmB8+M1yBSYU4QZUxd31sCjcSuPcgnkdDm1czOa4ymyN+8EhrYbGZHl/7P41sSPu2C1V+D0pN9+3VzKNppOM66L29sFPZrC9ot8Qu24BIF7f+hVgSe/kwHtv3AxXWJGy3HMiHM7IqDdlqAQseiiT630VDTLfutWGG0PMuAU4COPdNF6ufNMdgjoTqS2vtJM9xoakHwMaU0hN//mHi0UMaSzXoQDIgjAERDGMa7hIEfD9+P+lKN7/qbrmPH8n3JB9y3/qjJ+majaEeve5owkj/q/h4SrEo+aXEcvSADpkBiaTr2/+vyNrFsA/gI8Oo70wmI6aLQ749vF9InugYJNAjEOPPBl7oB59gIUcbqoaOyS1mCp6V39lWkq4gPdww4dYAazs9qVc03nSTZZnGEPrNBp89lAsMFaT8Ir/episLmard636BQUIGKg9MRahVxOi7rtWDbXYGXXHIIzBVz+ygCi6RctA6vdrPyTTCL28PBP3YZ37uA2ayLYL+pPT0B5whOX4fQRY0uoOfkFe57JRSqTKPu0n2CkgCcPcWvlrqUTlaYLvoumfxY2GzuF/E=
+  app: mean-hogwarts
+  on:
+    branch: master
+    node: '5'
+    repo: jonhammond/MEAN-hogwarts

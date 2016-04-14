@@ -6,3 +6,12 @@ body {
 a {
   color: #00B7FF;
 }
+
+.tableBar {
+  background-color: grey;
+  padding: 10px 0px;
+}
+
+.title {
+  text-align: center;
+}

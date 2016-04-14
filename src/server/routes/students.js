@@ -55,6 +55,7 @@ router.post('/', function(req, res, next){
 
 // Delete a SINGLE student route
 router.delete('/:id', function(req, res, next) {
+  console.log("Deleting endpoint hit...");
   var studentID = req.params.id;
   Students.findByIdAndRemove(studentID, function(err, student) {
     if (err) {

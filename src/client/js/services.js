@@ -12,6 +12,12 @@ app.service('studentDataService', ['crudService', function(crudService) {
       .then(function(student){
         return student;
       });
+    },
+    deleteStudent: function(id) {
+      crudService.deleteOne('students', id)
+      .then(function(student) {
+        return student;
+      });
     }
   };
 }]);
@@ -36,6 +42,15 @@ app.service('crudService', ['$http', function($http) {
         .catch(function(err){
           return err
         })
+    },
+    deleteOne: function(resource, id) {
+      return $http.delete(resource + '/' + id)
+      .then(function(res){
+        return res
+      })
+      .catch(function(err){
+        return err
+      })
     }
   }
 

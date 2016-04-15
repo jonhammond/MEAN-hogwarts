@@ -9,64 +9,14 @@
   </head>
   <body>
 
-    <div class="container" ng-controller="addStudentController">
-      <h1 class="title">MEAN Hogwarts</h1>
-      <h2>A Basic RESTFUL MEAN App</h2>
-      <br />
-      <form class="form" ng-submit="addStudent()">
-        <input ng-model="student.firstName" class="form-control" type="text" placeholder="first name..." required/>
-        <br />
-        <input ng-model="student.lastName" class="form-control" type="text" placeholder="last name..." required/>
-
-        <br />
-        Year:
-        <select ng-model="student.year">
-         <option value="1">1</option>
-         <option value="2">2</option>
-         <option value="3">3</option>
-         <option value="4">4</option>
-         <option value="5">5</option>
-         <option value="6">6</option>
-         <option value="7">7</option>
-        </select>
-        <br /><br />
-
-        <button type="submit" class="btn btn-success">Add Student</button>
-      </form>
-      <hr />
-      <div class="row tableBar">
-        <div class="col-xs-3">
-          First Name:
-        </div>
-        <div class="col-xs-3">
-          Last Name:
-        </div>
-        <div class="col-xs-3">
-          Year:
-        </div>
-      </div>
-      <br /><br />
-      <div ng-repeat="student in allStudents" class="row">
-          <div class="col-xs-3">
-            <p>{{ student.firstName }}</p>
-          </div>
-          <div class="col-xs-3">
-            <p>{{ student.lastName }}</p>
-          </div>
-          <div class="col-xs-3">
-            <p>{{ student.year }}</p>
-          </div>
-          <div>
-            <button class="btn btn-danger" ng-click="deleteStudent(student._id)">Delete</button>
-            <button class="btn btn-info" ng-click="editStudent(student._id)">Edit</button>
-          </div>
-          <hr />
-      </div>
+    <div ng-view>
     </div>
 
   <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.10/angular.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.4.10/angular-route.min.js"></script>
     <script type="text/javascript" src="./js/app.js"></script>
     <script type="text/javascript" src="./js/controllers.js"></script>
     <script type="text/javascript" src="./js/services.js"></script>
+    <script type="text/javascript" src="./js/routes.js"></script>
   </body>
 </html>

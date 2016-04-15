@@ -9,46 +9,46 @@ var testSeed = require('../../src/server/models/seeds/test-seed');
 var Students = require('../../src/server/models/students');
 
 
-chai.use(chaiHttp);
-
-
-describe('student routes', function() {
-
-
-  beforeEach(function(done) {
-    //drop db
-    testUtilities.dropDb()
-    //seed db
-    testSeed.runSeed(done);
-  });
-
-  afterEach(function(done) {
-    // drop db
-    testUtilities.dropDb(done)
-  });
-
-  // Test to get ALL students
-  describe('/GET students', function() {
-    it('should return all students', function(done) {
-      chai.request(server)
-      .get('/students')
-      .end(function(err, res) {
-        // console.log('res:', res);
-        res.status.should.equal(200);
-        res.type.should.equal('application/json');
-        res.body.should.be.a('object');
-        res.body.should.have.property('status');
-        res.body.should.have.property('data');
-        res.body.data.should.be.a('array');
-        res.body.status.should.equal('success');
-        res.body.data.length.should.equal(1);
-        res.body.data[0].firstName.should.equal('Harry');
-        res.body.data[0].lastName.should.equal('Potter');
-        res.body.data[0].year.should.equal(2007);
-        done();
-      });
-    });
-  });
+// chai.use(chaiHttp);
+//
+//
+// describe('student routes', function() {
+//
+//
+//   beforeEach(function(done) {
+//     //drop db
+//     testUtilities.dropDb()
+//     //seed db
+//     testSeed.runSeed(done);
+//   });
+//
+//   afterEach(function(done) {
+//     // drop db
+//     testUtilities.dropDb(done)
+//   });
+//
+//   // Test to get ALL students
+//   describe('/GET students', function() {
+//     it('should return all students', function(done) {
+//       chai.request(server)
+//       .get('/students')
+//       .end(function(err, res) {
+//         // console.log('res:', res);
+//         res.status.should.equal(200);
+//         res.type.should.equal('application/json');
+//         res.body.should.be.a('object');
+//         res.body.should.have.property('status');
+//         res.body.should.have.property('data');
+//         res.body.data.should.be.a('array');
+//         res.body.status.should.equal('success');
+//         res.body.data.length.should.equal(1);
+//         res.body.data[0].firstName.should.equal('Harry');
+//         res.body.data[0].lastName.should.equal('Potter');
+//         res.body.data[0].year.should.equal(2007);
+//         done();
+//       });
+//     });
+//   });
 
 //   // Test to get SINGLE student
 //   describe('GET single student', function() {

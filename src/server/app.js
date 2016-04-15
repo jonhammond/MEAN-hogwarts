@@ -1,8 +1,8 @@
 // *** main dependencies *** //
 var express = require('express');
 var path = require('path');
-var favicon = require('serve-favicon');
 var logger = require('morgan');
+var favicon = require('serve-favicon');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 var mongoose = require('mongoose');
@@ -27,9 +27,6 @@ mongoose.connect(mongoURI, function(err, res) {
   if (err) {
     console.log('Error connecting to the database. ' + err);
   }
-  // else {
-  //   console.log('Connected to Database: ' + config.mongoURI[app.settings.env]);
-  // }
 });
 
 

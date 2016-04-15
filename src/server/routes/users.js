@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 var moment = require('moment');
 var jwt = require('jwt-simple');
-var config = require('../../config')
+var config = require('../../_config')
 
 var User = require('../models/users');
 
@@ -81,7 +81,7 @@ router.get('/logout', function(req, res, next) {
 function generateToken(user) {
   var payload = {
     exp: moment().add(14, 'days').unix(),
-    iat: moment().unix();
+    iat: moment().unix(),
     sub: user._id
   };
   return jwt.encode(payload, config.TOKEN_SECRET)

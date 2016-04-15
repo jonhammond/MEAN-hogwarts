@@ -1,5 +1,5 @@
 var config = {};
-var flask = require('flask');
+// var flask = require('flask');
 
 config.mongoURI = {
   development: 'mongodb://localhost/hogwarts-mean-app',

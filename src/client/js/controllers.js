@@ -28,16 +28,34 @@ app.controller('addStudentController', ['$scope', 'studentDataService', function
 
 }])
 
-app.controller('registerController', ['$scope', function($scope) {
+app.controller('registerController', ['$scope', '$location', 'authService', function($scope, $location, authService) {
   $scope.user = {};
   $scope.register = function () {
-    console.log($scope.user)
+    authService.register($scope.user)
+    .then(function(user) {
+      authService.setUserInfo(user);
+      $location.path('/');
+    })
+    .catch(function(err) {
+      console.log('AH SHIT!', err);
+      // check status code
+      // send message
+    })
   }
 }])
 
-app.controller('loginController', ['$scope', function($scope) {
+app.controller('loginController', ['$scope', '$location', 'authService', function($scope, $location, authService) {
   $scope.user = {};
   $scope.login = function () {
-    console.log($scope.user)
+    authService.login($scope.user)
+    .then(function(user) {
+      authService.setUserInfo(user);
+      $location.path('/');
+    })
+    .catch(function(err) {
+      console.log('AH SHIT!', err);
+      // check status code
+      // send message
+    })
   }
 }])

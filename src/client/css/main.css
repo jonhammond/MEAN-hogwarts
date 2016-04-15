@@ -1,10 +1,19 @@
 body {
-  padding: 50px;
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
 
 a {
   color: #00B7FF;
+}
+
+.loginBG {
+  background-image: url('../images/hogwarts.jpg');
+  height: 100vh;
+  /*width: 100vw;*/
+  background-repeat: no-repeat;
+  background-position: center center;
+  background-size: 100%;
+  /*background-attachment: fixed;*/
 }
 
 .tableBar {
@@ -14,4 +23,18 @@ a {
 
 .title {
   text-align: center;
+}
+
+.flexContainer {
+  display: flex;
+}
+
+.box {
+  margin: 150px auto;
+  background-color: rgba(255,255,255,0.7);
+  width: 250px;
+  border: 1px solid grey;
+  border-radius: 10px;
+  text-align: center;
+  padding: 25px
 }
